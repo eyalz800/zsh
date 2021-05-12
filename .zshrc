@@ -15,6 +15,13 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.profile ] && source ~/.profile
 
+cdf() {
+    local result=$(dirname $(FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden" fzf) 2> /dev/null)
+    if ! [ "$result" = "" ]; then
+        cd $result
+    fi
+}
+
 export SHELL=zsh
 
 HISTFILE="$HOME/.zsh_history"
