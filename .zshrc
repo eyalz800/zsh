@@ -16,7 +16,7 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.profile ] && source ~/.profile
 
 cdf() {
-    local result=$(dirname $(FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden" fzf) 2> /dev/null)
+    local result=$(dirname $(FZF_DEFAULT_COMMAND="rg --files --no-ignore-vcs --hidden" fzf --preview="ls -la --color \$(dirname {})") 2> /dev/null)
     if ! [ "$result" = "" ]; then
         cd $result
     fi
