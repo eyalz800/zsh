@@ -22,6 +22,10 @@ cdf() {
     fi
 }
 
+gitlog() {
+    git log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+}
+
 export SHELL=zsh
 
 HISTFILE="$HOME/.zsh_history"
