@@ -3,7 +3,7 @@
 if [ -x "$(command -v brew)" ]; then
 	brew install zsh
 else
-	sudo apt-get install -y zsh
+	sudo apt install -y zsh
 fi
 
 RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

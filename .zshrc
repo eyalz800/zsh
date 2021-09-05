@@ -1,3 +1,7 @@
+export SHELL=zsh
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -26,8 +30,6 @@ gitlog() {
     git log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 }
 
-export SHELL=zsh
-
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=2147483647
 SAVEHIST=$HISTSIZE
@@ -50,4 +52,16 @@ bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
 bindkey "^[[3~" delete-char
 
+alias v=vim
+alias n=nvim
+alias nv=nvim
+
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
+
+
+if [[ -z "$TMUX" ]]; then
+    tmux a -t "main" 2> /dev/null
+    if [ $? != 0 ]; then
+        tmux new-session -s "main" 2> /dev/null
+    fi
+fi
