@@ -27,7 +27,7 @@ cdf() {
 }
 
 gitlog() {
-    git log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    git log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit
 }
 
 HISTFILE="$HOME/.zsh_history"
@@ -57,7 +57,6 @@ alias n=nvim
 alias nv=nvim
 
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
-
 
 if [[ -z "$TMUX" ]]; then
     tmux a -t "main" 2> /dev/null
