@@ -56,6 +56,8 @@ alias v=vim
 alias n=nvim
 alias nv=nvim
 
+export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
+
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
 
 if [[ -z "$TMUX" ]]; then
