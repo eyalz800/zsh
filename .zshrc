@@ -2,6 +2,13 @@ export SHELL=zsh
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+if [[ -z "$TMUX" ]]; then
+    tmux a -t "main" 2> /dev/null
+    if [ $? != 0 ]; then
+        tmux new-session -s "main" 2> /dev/null
+    fi
+fi
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -59,10 +66,3 @@ alias nv=nvim
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
-
-if [[ -z "$TMUX" ]]; then
-    tmux a -t "main" 2> /dev/null
-    if [ $? != 0 ]; then
-        tmux new-session -s "main" 2> /dev/null
-    fi
-fi
