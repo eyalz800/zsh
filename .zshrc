@@ -67,4 +67,8 @@ alias nv=nvim
 
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 
+(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
