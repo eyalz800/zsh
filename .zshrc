@@ -2,7 +2,7 @@ export SHELL=zsh
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-if [[ -z "$TMUX" ]]; then
+if [[ -z "$TMUX" ]] && [[ -z "$TERM_PROGRAM" ]]; then
     tmux a -t "main" 2> /dev/null
     if [ $? != 0 ]; then
         tmux new-session -s "main" 2> /dev/null
